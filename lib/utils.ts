@@ -13,7 +13,7 @@ export function getCurrencySymbol(): string {
   return "BOT";
 }
 
-export function formatBohrAmount(amountWei?: bigint): string {
+export function formatTokenAmount(amountWei?: bigint): string {
   if (amountWei === undefined || amountWei === null) return "0";
   try {
     const formatted = formatEther(amountWei);

@@ -7,7 +7,7 @@ import { FEE_TRACK_ABI } from "@/lib/contractABI";
 import { FeeRecord, PaymentStatus } from "@/lib/types";
 import {
   formatAddress,
-  formatBohrAmount,
+  formatTokenAmount,
   formatTimestamp,
   formatDateOnly,
   isPastDeadline,
@@ -92,7 +92,7 @@ export function FeeLookupSection({ contractAddress }: { contractAddress: `0x${st
       if (e.message?.includes("FeeNotFound") || e.message?.includes("revert")) {
         setError(`No fee record was found for Fee ID #${idToSearch}. Please verify the number.`);
       } else {
-        setError("Unable to retrieve record from Botchain Testnet. Please check the network RPC.");
+        setError("Unable to retrieve record from BOT Chain Mainnet. Please check the network RPC.");
       }
     } finally {
       setLoading(false);
@@ -220,7 +220,7 @@ export function FeeLookupSection({ contractAddress }: { contractAddress: `0x${st
               <div>
                 <span className="text-charcoal-500 block">Fee Amount:</span>
                 <span className="text-sm font-bold text-charcoal-100 font-mono">
-                  {formatBohrAmount(record.amount)} {symbol}
+                  {formatTokenAmount(record.amount)} {symbol}
                 </span>
               </div>
             </div>

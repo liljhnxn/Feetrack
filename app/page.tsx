@@ -123,6 +123,71 @@ export default function Home() {
           <MyFeesSection contractAddress={contractAddress} />
         </section>
 
+        {/* 5. BOT Chain Ecosystem Section */}
+        <section className="rounded-2xl p-6 sm:p-7 bg-charcoal-900 border border-charcoal-800 shadow-xl">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="space-y-2">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-charcoal-850 border border-charcoal-700 text-xs font-medium text-emeraldAcc-400">
+                <span className="w-2 h-2 rounded-full bg-emeraldAcc-400 animate-pulse" />
+                <span>BOT Chain Ecosystem</span>
+              </div>
+              <h3 className="text-xl font-bold text-charcoal-100 flex items-center gap-2">
+                <span>Powered by</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purpleAcc-400 via-purpleAcc-300 to-emeraldAcc-400">
+                  BOT Chain
+                </span>
+              </h3>
+              <p className="text-xs sm:text-sm text-charcoal-400 max-w-2xl leading-relaxed">
+                FeeTrack operates natively on <strong>BOT Chain Mainnet</strong> (Chain ID: 677, Native Token: BOT), delivering sub-second finality, near-zero transaction costs, and cryptographic proof of school fee payment records.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0">
+              <a
+                href="https://botchain.ai"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-charcoal-800 hover:bg-charcoal-750 border border-charcoal-700 text-xs font-semibold text-charcoal-200 hover:text-white transition-all shadow-md"
+              >
+                <Globe className="w-4 h-4 text-purpleAcc-400" />
+                <span>BOT Chain Website</span>
+                <ExternalLink className="w-3.5 h-3.5 text-charcoal-500" />
+              </a>
+
+              <a
+                href="https://scan.botchain.ai"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-purpleAcc-600 hover:bg-purpleAcc-700 text-xs font-semibold text-white transition-all shadow-md shadow-purpleAcc-900/30"
+              >
+                <ShieldCheck className="w-4 h-4 text-purpleAcc-200" />
+                <span>BOT Chain Explorer</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-5 pt-4 border-t border-charcoal-800/80 flex flex-wrap items-center justify-between gap-3 text-xs text-charcoal-500">
+            <div className="flex items-center gap-4">
+              <span>Chain ID: <strong className="text-charcoal-300 font-mono">677</strong></span>
+              <span>•</span>
+              <span>Native Token: <strong className="text-charcoal-300 font-mono">BOT</strong></span>
+              <span>•</span>
+              <span>Total Supply: <strong className="text-charcoal-300 font-mono">150 Million</strong></span>
+            </div>
+
+            <a
+              href={`https://scan.botchain.ai/address/${contractAddress}`}
+              target="_blank"
+              rel="noreferrer"
+              className="text-purpleAcc-400 hover:underline flex items-center gap-1 font-mono"
+            >
+              <span>Mainnet Contract: {contractAddress.slice(0, 10)}...{contractAddress.slice(-8)}</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
+          </div>
+        </section>
+
         {/* Information & Security Banner */}
         <div className="p-4 sm:p-5 rounded-2xl bg-charcoal-900/60 border border-charcoal-800 text-xs text-charcoal-500 flex items-start gap-3">
           <HelpCircle className="w-4 h-4 text-purpleAcc-400 shrink-0 mt-0.5" />
@@ -136,31 +201,55 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-charcoal-800/80 bg-charcoal-950 py-6 px-4 text-xs text-charcoal-500">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4 text-purpleAcc-400" />
-            <span className="font-semibold text-charcoal-300">FeeTrack</span>
-            <span>— School fee records made simple.</span>
+      <footer className="border-t border-charcoal-800/80 bg-charcoal-950 py-8 px-4 text-xs text-charcoal-500">
+        <div className="max-w-7xl mx-auto space-y-6">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2">
+                <div className="h-6 w-6 rounded-lg bg-purpleAcc-600/30 flex items-center justify-center border border-purpleAcc-500/40">
+                  <ShieldCheck className="w-3.5 h-3.5 text-purpleAcc-300" />
+                </div>
+                <span className="font-bold text-sm text-charcoal-200">FeeTrack</span>
+                <span className="text-charcoal-500">— School fee records made simple.</span>
+              </div>
+              <p className="text-[11px] text-charcoal-500">
+                Built natively on <strong>BOT Chain</strong> Mainnet.
+              </p>
+            </div>
+
+            {/* Required BOT Chain Ecosystem Links */}
+            <div className="flex flex-wrap items-center gap-4 text-xs">
+              <a
+                href="https://botchain.ai"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-1.5 text-charcoal-300 hover:text-white transition-colors py-1 px-2.5 rounded-lg bg-charcoal-900 border border-charcoal-800"
+              >
+                <Globe className="w-3.5 h-3.5 text-emeraldAcc-400" />
+                <span>BOT Chain website: <strong className="text-emeraldAcc-400 font-normal">https://botchain.ai</strong></span>
+              </a>
+
+              <a
+                href="https://scan.botchain.ai"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-1.5 text-charcoal-300 hover:text-white transition-colors py-1 px-2.5 rounded-lg bg-charcoal-900 border border-charcoal-800"
+              >
+                <ExternalLink className="w-3.5 h-3.5 text-purpleAcc-400" />
+                <span>BOT Chain explorer: <strong className="text-purpleAcc-400 font-normal">https://scan.botchain.ai</strong></span>
+              </a>
+            </div>
           </div>
-          <div className="flex items-center gap-4">
-            <a
-              href="https://rpc.botchain.ai"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-charcoal-300 transition-colors"
-            >
-              RPC
-            </a>
-            <a
-              href="https://scan.botchain.ai"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-charcoal-300 transition-colors"
-            >
-              Explorer
-            </a>
-            <span>Powered by Botchain Mainnet (677)</span>
+
+          <div className="pt-4 border-t border-charcoal-900 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-charcoal-600">
+            <div>
+              © 2026 FeeTrack Ledger. Non-custodial educational fee verification protocol.
+            </div>
+            <div className="flex items-center gap-3">
+              <span>RPC: <code className="text-charcoal-400">https://rpc.botchain.ai</code></span>
+              <span>•</span>
+              <span>Chain ID: <code className="text-charcoal-400">677</code></span>
+            </div>
           </div>
         </div>
       </footer>

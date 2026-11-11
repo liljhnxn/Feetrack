@@ -3,7 +3,7 @@
 import React from "react";
 import { useReadContract } from "wagmi";
 import { FEE_TRACK_ABI } from "@/lib/contractABI";
-import { formatBohrAmount, getCurrencySymbol } from "@/lib/utils";
+import { formatTokenAmount, getCurrencySymbol } from "@/lib/utils";
 import { defaultChain } from "@/lib/chains";
 import { FileText, CheckCircle2, Clock, Coins, RefreshCw } from "lucide-react";
 
@@ -95,7 +95,7 @@ export function DashboardStats({ contractAddress }: { contractAddress: `0x${stri
             {isLoading ? (
               <span className="text-charcoal-600 animate-pulse">...</span>
             ) : (
-              `${formatBohrAmount(totalAmount)} ${symbol}`
+              `${formatTokenAmount(totalAmount)} ${symbol}`
             )}
           </div>
           <p className="text-[11px] text-charcoal-500 mt-1">Aggregated fee volume</p>

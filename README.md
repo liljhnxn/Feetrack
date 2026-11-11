@@ -1,19 +1,33 @@
 # FeeTrack - Web3 School Fee Payment Record Management
 
-**FeeTrack** is a lightweight, transparent, and decentralized on-chain school fee payment record management application for schools and educational institutions, deployed on **Botchain Testnet**.
+**FeeTrack** is a lightweight, transparent, and decentralized on-chain school fee payment record management application for schools and educational institutions, deployed natively on **BOT Chain Mainnet**.
 
 School administrators can register student fee records, set fee amounts and payment deadlines, and record whether fees have been paid. Students, parents, and sponsors can look up payment records using a unique **Fee ID** without connecting a wallet.
 
 ---
 
+## 🌐 BOT Chain Mainnet Network Details
+
+* **Network**: BOT Chain Mainnet
+* **Chain ID**: `677`
+* **RPC URL**: `https://rpc.botchain.ai`
+* **Native Token**: `BOT`
+* **Total Supply**: `150 Million`
+* **BOT Chain Website**: [https://botchain.ai](https://botchain.ai)
+* **BOT Chain Explorer**: [https://scan.botchain.ai](https://scan.botchain.ai)
+* **Deployed Contract**: [`0x734Ff1ff575f3229A896761694B235Ea53B780A3`](https://scan.botchain.ai/address/0x734Ff1ff575f3229A896761694B235Ea53B780A3)
+* **Source Code Verification**: [Verified on BotchainScan](https://scan.botchain.ai/address/0x734Ff1ff575f3229A896761694B235Ea53B780A3#code)
+
+---
+
 ## 🌟 Key Features
 
-* **Public Fee Lookup (No Wallet Required)**: Anyone with a unique Fee ID can instantly verify the student reference, description, amount, due date, administrator address, and on-chain payment status.
+* **Public Fee Lookup (No Wallet Required)**: Anyone with a unique Fee ID can instantly verify student reference, fee description, amount, due date, administrator address, and on-chain payment status.
 * **School Administrator Records Portal**: Connect MetaMask to register new fees, mark records as Paid or Unpaid, and edit fee details.
 * **Granular Access Control**: Only the original administrator who created a record can modify its status or details.
 * **Privacy by Design**: No student names, home addresses, or sensitive personal data are stored on-chain. Only anonymous identifiers (e.g. `STU-2026-9041`) are used.
-* **Botchain Testnet Integration**: Low-latency, EVM-compatible blockchain verification.
-* **Live Dashboard Statistics**: Displays real-time on-chain counts of total records, paid records, pending unpaid records, and aggregate fee amounts.
+* **BOT Chain Integration**: Sub-second finality, near-zero transaction costs, and cryptographic proof of school fee payment records.
+* **Live Dashboard Statistics**: Real-time on-chain counts of total records, paid records, pending unpaid records, and aggregate fee amounts.
 
 ---
 
@@ -25,22 +39,13 @@ School administrators can register student fee records, set fee amounts and paym
 
 ---
 
-## 🌐 Blockchain Network Details
-
-* **Network**: Botchain Testnet
-* **Chain ID**: `968`
-* **RPC URL**: `https://rpc.bohr.life`
-* **Currency Symbol**: `BOHR`
-* **Block Explorer**: [https://scan.bohr.life](https://scan.bohr.life)
-
----
-
 ## 📂 Project Structure
 
 ```
 FeeTrack/
 ├── app/
 │   ├── globals.css         # Dark charcoal & muted purple/green theme
+│   ├── icon.svg            # Custom branded favicon
 │   ├── layout.tsx          # Root layout and metadata
 │   ├── page.tsx            # Main one-page dApp interface
 │   └── providers.tsx       # Wagmi & React Query provider wrapper
@@ -49,22 +54,24 @@ FeeTrack/
 │   ├── EditFeeModal.tsx     # Admin modal to edit fee description, amount, and deadline
 │   ├── FeeLookupSection.tsx # Public Fee ID search without wallet
 │   ├── MyFeesSection.tsx    # Admin fee records table with Paid/Unpaid/Edit toggles
-│   ├── Navbar.tsx           # Brand header, network switcher & wallet connect
+│   ├── Navbar.tsx           # Brand header, network status & wallet connect
 │   └── RegisterFeeSection.tsx # Fee registration form with copy Fee ID & explorer link
 ├── contracts/
 │   └── FeeTrack.sol        # Solidity smart contract with custom errors & events
 ├── lib/
-│   ├── chains.ts           # Botchain Testnet chain definition
+│   ├── chains.ts           # BOT Chain Mainnet chain definition
 │   ├── contractABI.ts      # Strongly-typed FeeTrack ABI
+│   ├── deployedAddress.json # Deployed Mainnet contract info
 │   ├── types.ts            # TypeScript interfaces & enums
-│   ├── utils.ts            # Formatters for Bohr currency, addresses, and timestamps
+│   ├── utils.ts            # Formatters for BOT currency, addresses, and timestamps
 │   └── wagmi.ts            # Wagmi client configuration
 ├── scripts/
-│   └── deploy.ts           # Hardhat deployment script for Botchain
+│   ├── deploy.ts           # Hardhat deployment script for BOT Chain Mainnet
+│   └── verifyOnChain.ts    # Mainnet on-chain live check script
 ├── test/
 │   └── FeeTrack.test.ts    # Comprehensive test suite (19 test cases)
 ├── .env.example            # Template for environment configuration
-├── hardhat.config.ts       # Hardhat configuration for Botchain Testnet
+├── hardhat.config.ts       # Hardhat configuration for BOT Chain Mainnet
 └── package.json
 ```
 
@@ -79,7 +86,7 @@ FeeTrack/
 
 ### 2. Installation
 
-Clone or open the workspace and install the dependencies:
+Clone the workspace and install the dependencies:
 
 ```bash
 npm install
@@ -106,7 +113,7 @@ All 19 tests will execute, verifying:
 
 ---
 
-## 🚢 Deploying to Botchain Testnet
+## 🚢 Deploying to BOT Chain Mainnet
 
 1. Copy `.env.example` to `.env`:
    ```bash
@@ -115,24 +122,24 @@ All 19 tests will execute, verifying:
 
 2. Add your deployer wallet's private key to `.env`:
    ```ini
-   BOTCHAIN_RPC_URL=https://rpc.bohr.life
+   BOTCHAIN_RPC_URL=https://rpc.botchain.ai
    PRIVATE_KEY=0xYourPrivateKeyHere...
    ```
-   *(Ensure your address has testnet BOHR tokens for gas fees).*
 
 3. Run the deployment script:
    ```bash
-   npm run deploy:botchain
+   npm run deploy:mainnet
    ```
 
 4. The script logs the deployed contract address and saves deployment metadata to `lib/deployedAddress.json`.
 
 5. Update `.env.local` for the Next.js frontend:
    ```ini
-   NEXT_PUBLIC_FEETRACK_ADDRESS=0xYourDeployedAddressHere
-   NEXT_PUBLIC_BOTCHAIN_RPC_URL=https://rpc.bohr.life
-   NEXT_PUBLIC_BOTCHAIN_CHAIN_ID=968
-   NEXT_PUBLIC_BOTCHAIN_EXPLORER_URL=https://scan.bohr.life
+   NEXT_PUBLIC_FEETRACK_ADDRESS=0x734Ff1ff575f3229A896761694B235Ea53B780A3
+   NEXT_PUBLIC_BOTCHAIN_RPC_URL=https://rpc.botchain.ai
+   NEXT_PUBLIC_BOTCHAIN_CHAIN_ID=677
+   NEXT_PUBLIC_BOTCHAIN_EXPLORER_URL=https://scan.botchain.ai
+   NEXT_PUBLIC_CURRENCY_SYMBOL=BOT
    ```
 
 ---
@@ -163,7 +170,13 @@ npm run start
 
 ---
 
+## 🌐 Ecosystem Links
+
+* **BOT Chain Website**: [https://botchain.ai](https://botchain.ai)
+* **BOT Chain Explorer**: [https://scan.botchain.ai](https://scan.botchain.ai)
+
+---
+
 ## 📄 License
 
 MIT
-

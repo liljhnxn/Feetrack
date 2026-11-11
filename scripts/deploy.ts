@@ -11,7 +11,7 @@ async function main() {
   const balance = await ethers.provider.getBalance(deployer.address);
   const network = await ethers.provider.getNetwork();
   const chainId = Number(network.chainId);
-  const symbol = chainId === 677 ? "BOT" : "BOHR";
+  const symbol = "BOT";
   console.log("Network:", network.name, `(Chain ID: ${chainId})`);
   console.log("Account balance:", ethers.formatEther(balance), symbol);
 
@@ -58,8 +58,8 @@ async function main() {
     envLocalContent = fs.readFileSync(envLocalPath, "utf-8");
   }
 
-  const rpcUrl = chainId === 677 ? "https://rpc.botchain.ai" : "https://rpc.bohr.life";
-  const explorerUrl = chainId === 677 ? "https://scan.botchain.ai" : "https://scan.bohr.life";
+  const rpcUrl = process.env.BOTCHAIN_RPC_URL || "https://rpc.botchain.ai";
+  const explorerUrl = "https://scan.botchain.ai";
 
   const envVars: Record<string, string> = {
     NEXT_PUBLIC_FEETRACK_ADDRESS: contractAddress,

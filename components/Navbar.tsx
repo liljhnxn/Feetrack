@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useAccount, useConnect, useDisconnect, useChainId, useSwitchChain } from "wagmi";
 import { formatAddress } from "@/lib/utils";
-import { botchainMainnet, botchainTestnet } from "@/lib/chains";
+import { botchainMainnet } from "@/lib/chains";
 import { ShieldCheck, Wallet, LogOut, Check, Copy, ExternalLink, AlertCircle } from "lucide-react";
 
 export function Navbar({ contractAddress }: { contractAddress: string }) {
@@ -16,7 +16,7 @@ export function Navbar({ contractAddress }: { contractAddress: string }) {
   const [copiedAddr, setCopiedAddr] = useState(false);
   const [copiedContract, setCopiedContract] = useState(false);
 
-  const targetChainId = Number(process.env.NEXT_PUBLIC_BOTCHAIN_CHAIN_ID) || 677;
+  const targetChainId = 677;
   const isWrongNetwork = isConnected && chainId !== targetChainId && chainId !== 31337;
   const explorerBase = process.env.NEXT_PUBLIC_BOTCHAIN_EXPLORER_URL || "https://scan.botchain.ai";
 
@@ -52,7 +52,7 @@ export function Navbar({ contractAddress }: { contractAddress: string }) {
                 Fee<span className="text-purpleAcc-400">Track</span>
               </span>
               <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-charcoal-850 text-purpleAcc-400 border border-charcoal-700">
-                {targetChainId === 677 ? "Botchain Mainnet" : "Botchain 968"}
+                Botchain Mainnet (677)
               </span>
             </div>
             <p className="text-xs text-charcoal-500 hidden sm:block">

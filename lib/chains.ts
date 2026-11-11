@@ -25,31 +25,6 @@ export const botchainMainnet = defineChain({
   testnet: false,
 });
 
-export const botchainTestnet = defineChain({
-  id: 968,
-  name: "Botchain Testnet",
-  nativeCurrency: {
-    name: "Bohr",
-    symbol: "BOHR",
-    decimals: 18,
-  },
-  rpcUrls: {
-    default: {
-      http: ["https://rpc.bohr.life"],
-    },
-    public: {
-      http: ["https://rpc.bohr.life"],
-    },
-  },
-  blockExplorers: {
-    default: {
-      name: "BohrScan",
-      url: "https://scan.bohr.life",
-    },
-  },
-  testnet: true,
-});
-
 export const hardhatLocal = defineChain({
   id: 31337,
   name: "Hardhat Local",
@@ -70,8 +45,6 @@ export const hardhatLocal = defineChain({
 });
 
 export const defaultChain =
-  Number(process.env.NEXT_PUBLIC_BOTCHAIN_CHAIN_ID) === 677
-    ? botchainMainnet
-    : Number(process.env.NEXT_PUBLIC_BOTCHAIN_CHAIN_ID) === 31337
+  Number(process.env.NEXT_PUBLIC_BOTCHAIN_CHAIN_ID) === 31337
     ? hardhatLocal
-    : botchainMainnet; // default to mainnet
+    : botchainMainnet;

@@ -10,7 +10,7 @@ import {
 import { FEE_TRACK_ABI } from "@/lib/contractABI";
 import { FeeRecord, PaymentStatus } from "@/lib/types";
 import {
-  formatBohrAmount,
+  formatTokenAmount,
   formatDateOnly,
   formatTimestamp,
   isPastDeadline,
@@ -157,7 +157,7 @@ export function MyFeesSection({ contractAddress }: { contractAddress: `0x${strin
         <div className="p-3 rounded-xl bg-purpleAcc-950/40 border border-purpleAcc-500/30 text-purpleAcc-300 text-xs flex items-center gap-2">
           <Loader2 className="w-4 h-4 animate-spin text-purpleAcc-400" />
           <span>
-            {isSubmitting ? "Please confirm status update in your wallet..." : "Updating record status on Botchain Testnet..."}
+            {isSubmitting ? "Please confirm status update in your wallet..." : "Updating record status on BOT Chain Mainnet..."}
           </span>
         </div>
       )}
@@ -243,7 +243,7 @@ export function MyFeesSection({ contractAddress }: { contractAddress: `0x${strin
                     <div>
                       <span>Amount: </span>
                       <span className="font-mono font-semibold text-charcoal-200">
-                        {formatBohrAmount(fee.amount)} {getCurrencySymbol()}
+                        {formatTokenAmount(fee.amount)} {getCurrencySymbol()}
                       </span>
                     </div>
 

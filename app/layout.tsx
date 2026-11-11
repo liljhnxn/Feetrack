@@ -4,7 +4,7 @@ import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   title: "FeeTrack - School Fee Records Made Simple",
-  description: "Lightweight and transparent on-chain school fee payment record management application powered by Botchain Testnet.",
+  description: "Lightweight and transparent on-chain school fee payment record management application powered by BOT Chain Mainnet.",
   icons: {
     icon: "/icon.svg",
     shortcut: "/icon.svg",

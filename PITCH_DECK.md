@@ -23,7 +23,7 @@
 ---
 
 ### Slide 3: The Solution — FeeTrack
-* **Immutable Proof**: Fee creation, amounts, deadlines, and payment confirmation are recorded permanently on Botchain Testnet.
+* **Immutable Proof**: Fee creation, amounts, deadlines, and payment confirmation are recorded permanently on BOT Chain Mainnet.
 * **Zero-Wallet Public Lookup**: Anyone holding a unique Fee ID can instantly verify payment status online without connecting a crypto wallet.
 * **Privacy-First**: Enforces anonymous student references (`STU-2026-9041`); strictly zero personal identifiable information (PII) on-chain.
 * **Non-Custodial & Low Risk**: Records payment status without holding or escrowing school funds, eliminating custody risk.
@@ -39,8 +39,8 @@
 ---
 
 ### Slide 5: Product & Live Traction
-* **Fully Functional dApp**: Live on Botchain Testnet.
-* **Verified Smart Contract**: Deployed at `0x0C5987fF8980f8B3e8230eB52C641DaA024c8E79` with verified source code on BohrScan.
+* **Fully Functional dApp**: Live on BOT Chain Mainnet (Chain ID: 677).
+* **Verified Smart Contract**: Deployed at `0x734Ff1ff575f3229A896761694B235Ea53B780A3` with verified source code on BotchainScan.
 * **Rigorous Testing**: 19 automated unit tests verifying access control, boundary conditions, and state transitions.
 * **Responsive UI**: Next.js 14, Tailwind CSS, dark charcoal design with muted purple/green indicators.
 
@@ -72,9 +72,9 @@
 ---
 
 ### Slide 9: Roadmap
-* **Q4 2026 (Completed)**: Core protocol launch on Botchain Testnet, full unit testing, source code verification, and responsive web app.
+* **Q4 2026 (Completed)**: Protocol launch on BOT Chain Mainnet, full unit testing, source code verification, and responsive web app with BOT Chain ecosystem integration.
 * **Q1 2027**: Institutional batch registration, printable QR-code receipts, and multi-signature admin controls.
-* **Q2 2027**: Botchain Mainnet deployment, scholarship disbursement integration, and mobile PWA release.
+* **Q2 2027**: Global EdTech partnerships, scholarship disbursement integration, and mobile PWA release.
 
 ---
 
@@ -82,6 +82,8 @@
 * **Team**: Web3 developers, smart contract engineers, and EdTech enthusiasts passionate about real-world blockchain utility.
 * **Call to Action**:
   * Test the dApp: [Local/Vercel URL]
-  * Contract on BohrScan: `0x0C5987fF8980f8B3e8230eB52C641DaA024c8E79`
+  * Contract on BotchainScan: [`0x734Ff1ff575f3229A896761694B235Ea53B780A3`](https://scan.botchain.ai/address/0x734Ff1ff575f3229A896761694B235Ea53B780A3)
+  * BOT Chain Website: [https://botchain.ai](https://botchain.ai)
+  * BOT Chain Explorer: [https://scan.botchain.ai](https://scan.botchain.ai)
   * GitHub: [https://github.com/liljhnxn/Feetrack](https://github.com/liljhnxn/Feetrack)
 

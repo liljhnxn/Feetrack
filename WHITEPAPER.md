@@ -46,7 +46,7 @@ FeeTrack decouples **record issuance** from **status verification**:
          │
          ▼ (MetaMask Wallet / EIP-1193)
 ┌──────────────────────────────────────────────┐
-│  FeeTrack Smart Contract (Botchain Testnet)  │
+│  FeeTrack Smart Contract (BOT Chain Mainnet) │
 │  - registerFee()                             │
 │  - markFeePaid()                             │
 │  - markFeeUnpaid()                           │
@@ -94,7 +94,7 @@ struct FeeRecord {
 * **Framework**: Next.js 14 (App Router) with TypeScript.
 * **Styling**: Tailwind CSS adhering to a dark charcoal theme with muted purple and emerald accents.
 * **Web3 Integration**: Wagmi v2 + Viem + TanStack Query.
-* **Network Integration**: Pre-configured for Botchain Testnet (Chain ID 968) with 1-click network switching and MetaMask RPC injection.
+* **Network Integration**: Pre-configured for BOT Chain Mainnet (Chain ID 677) with 1-click network switching and MetaMask RPC injection.
 
 ---
 
@@ -111,21 +111,22 @@ struct FeeRecord {
 
 ## 6. Tokenomics & Network Role
 
-FeeTrack leverages **Botchain (BOHR)** for consensus and transaction ordering:
-* **Administrators**: Pay minimal gas fees in BOHR to register, edit, and update records.
-* **Viewers / Verifiers**: 100% free read operations facilitated by public RPC endpoints.
+FeeTrack leverages **BOT Chain (BOT)** for consensus and transaction ordering:
+* **Administrators**: Pay minimal gas fees in BOT to register, edit, and update records.
+* **Viewers / Verifiers**: 100% free read operations facilitated by public RPC endpoints (`https://rpc.botchain.ai`).
 * **Efficiency**: Average registration consumes $< 150,000$ gas units, making institutional batch operations practically negligible in cost compared to traditional banking and SaaS transaction fees.
 
 ---
 
 ## 7. Roadmap & Future Milestones
 
-### Phase 1: Testnet & Core Protocol (Completed)
+### Phase 1: Mainnet Launch & Protocol Verification (Completed)
 - [x] Core `FeeTrack.sol` smart contract architecture.
 - [x] 19 automated test cases covering all edge conditions.
-- [x] Deployment to Botchain Testnet (`0x0C5987fF8980f8B3e8230eB52C641DaA024c8E79`).
-- [x] Full source code verification on BohrScan.
+- [x] Deployment to BOT Chain Mainnet (`0x734Ff1ff575f3229A896761694B235Ea53B780A3`).
+- [x] Full source code verification on BotchainScan.
 - [x] Responsive Next.js 14 frontend with public lookup engine.
+- [x] Native BOT Chain ecosystem integration ([botchain.ai](https://botchain.ai) & [scan.botchain.ai](https://scan.botchain.ai)).
 
 ### Phase 2: Institutional Features (Q1 2027)
 - [ ] Multi-admin roles per school with multi-sig approval.
