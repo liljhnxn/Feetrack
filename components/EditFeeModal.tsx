@@ -5,6 +5,7 @@ import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import { parseEther, formatEther } from "viem";
 import { FEE_TRACK_ABI } from "@/lib/contractABI";
 import { FeeRecord } from "@/lib/types";
+import { getCurrencySymbol } from "@/lib/utils";
 import { X, Edit3, Loader2, AlertCircle } from "lucide-react";
 
 interface EditFeeModalProps {
@@ -138,7 +139,7 @@ export function EditFeeModal({
 
           <div>
             <label className="block text-charcoal-400 font-medium mb-1">
-              Fee Amount (BOHR)
+              Fee Amount ({getCurrencySymbol()})
             </label>
             <input
               type="number"

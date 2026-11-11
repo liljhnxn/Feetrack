@@ -31,10 +31,17 @@ const config: HardhatUserConfig = {
       chainId: 968,
       accounts: [PRIVATE_KEY],
     },
+    botchainMainnet: {
+      url: process.env.BOTCHAIN_MAINNET_RPC_URL || "https://rpc.botchain.ai",
+      chainId: 677,
+      accounts: [PRIVATE_KEY],
+      gasPrice: 20000000000, // 20 Gwei minimum to conserve gas
+    },
   },
   etherscan: {
     apiKey: {
       botchain: "empty",
+      botchainMainnet: "empty",
     },
     customChains: [
       {
@@ -43,6 +50,14 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: "https://scan.bohr.life/api",
           browserURL: "https://scan.bohr.life",
+        },
+      },
+      {
+        network: "botchainMainnet",
+        chainId: 677,
+        urls: {
+          apiURL: "https://scan.botchain.ai/api",
+          browserURL: "https://scan.botchain.ai",
         },
       },
     ],

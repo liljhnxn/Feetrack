@@ -6,6 +6,13 @@ export function formatAddress(address?: string): string {
   return `${address.slice(0, 6)}...${address.slice(-4)}`;
 }
 
+export function getCurrencySymbol(): string {
+  if (typeof process !== "undefined" && process.env.NEXT_PUBLIC_CURRENCY_SYMBOL) {
+    return process.env.NEXT_PUBLIC_CURRENCY_SYMBOL;
+  }
+  return "BOT";
+}
+
 export function formatBohrAmount(amountWei?: bigint): string {
   if (amountWei === undefined || amountWei === null) return "0";
   try {

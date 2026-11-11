@@ -1,8 +1,8 @@
 # FeeTrack — Pitch Deck
 
 **Tagline**: School fee records made simple on-chain.  
-**Network**: Botchain Testnet (Chain ID: 968)  
-**Contract**: `0x0C5987fF8980f8B3e8230eB52C641DaA024c8E79`  
+**Network**: Botchain Mainnet (Chain ID: 677)  
+**Contract**: `0x734Ff1ff575f3229A896761694B235Ea53B780A3`  
 **GitHub**: [https://github.com/liljhnxn/Feetrack](https://github.com/liljhnxn/Feetrack)  
 
 ---
@@ -84,3 +84,4 @@
   * Test the dApp: [Local/Vercel URL]
   * Contract on BohrScan: `0x0C5987fF8980f8B3e8230eB52C641DaA024c8E79`
   * GitHub: [https://github.com/liljhnxn/Feetrack](https://github.com/liljhnxn/Feetrack)
+

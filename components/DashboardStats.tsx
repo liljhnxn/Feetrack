@@ -3,8 +3,8 @@
 import React from "react";
 import { useReadContract } from "wagmi";
 import { FEE_TRACK_ABI } from "@/lib/contractABI";
-import { formatBohrAmount } from "@/lib/utils";
-import { botchainTestnet } from "@/lib/chains";
+import { formatBohrAmount, getCurrencySymbol } from "@/lib/utils";
+import { defaultChain } from "@/lib/chains";
 import { FileText, CheckCircle2, Clock, Coins, RefreshCw } from "lucide-react";
 
 export function DashboardStats({ contractAddress }: { contractAddress: `0x${string}` }) {
@@ -12,20 +12,21 @@ export function DashboardStats({ contractAddress }: { contractAddress: `0x${stri
     address: contractAddress,
     abi: FEE_TRACK_ABI,
     functionName: "getFeeStatistics",
-    chainId: botchainTestnet.id,
+    chainId: defaultChain.id,
   });
 
   const totalRecords = data ? Number(data[0]) : 0;
   const paidRecords = data ? Number(data[1]) : 0;
   const unpaidRecords = data ? Number(data[2]) : 0;
   const totalAmount = data ? data[3] : BigInt(0);
+  const symbol = getCurrencySymbol();
 
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-lg font-semibold text-charcoal-200">On-Chain Overview</h2>
-          <p className="text-xs text-charcoal-500">Live statistics recorded on Botchain Testnet</p>
+          <p className="text-xs text-charcoal-500">Live statistics recorded on {defaultChain.name}</p>
         </div>
         <button
           onClick={() => refetch()}
@@ -94,7 +95,7 @@ export function DashboardStats({ contractAddress }: { contractAddress: `0x${stri
             {isLoading ? (
               <span className="text-charcoal-600 animate-pulse">...</span>
             ) : (
-              `${formatBohrAmount(totalAmount)} BOHR`
+              `${formatBohrAmount(totalAmount)} ${symbol}`
             )}
           </div>
           <p className="text-[11px] text-charcoal-500 mt-1">Aggregated fee volume</p>

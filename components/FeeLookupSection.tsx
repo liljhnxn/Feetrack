@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { createPublicClient, http } from "viem";
-import { botchainTestnet } from "@/lib/chains";
+import { defaultChain } from "@/lib/chains";
 import { FEE_TRACK_ABI } from "@/lib/contractABI";
 import { FeeRecord, PaymentStatus } from "@/lib/types";
 import {
@@ -11,6 +11,7 @@ import {
   formatTimestamp,
   formatDateOnly,
   isPastDeadline,
+  getCurrencySymbol,
 } from "@/lib/utils";
 import {
   Search,
@@ -36,6 +37,8 @@ export function FeeLookupSection({ contractAddress }: { contractAddress: `0x${st
 
   const [copiedAdmin, setCopiedAdmin] = useState(false);
   const [copiedId, setCopiedId] = useState(false);
+  const symbol = getCurrencySymbol();
+  const explorerBase = process.env.NEXT_PUBLIC_BOTCHAIN_EXPLORER_URL || "https://scan.botchain.ai";
 
   const handleLookup = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
@@ -57,9 +60,9 @@ export function FeeLookupSection({ contractAddress }: { contractAddress: `0x${st
 
     try {
       const rpcUrl =
-        process.env.NEXT_PUBLIC_BOTCHAIN_RPC_URL || "https://rpc.bohr.life";
+        process.env.NEXT_PUBLIC_BOTCHAIN_RPC_URL || "https://rpc.botchain.ai";
       const publicClient = createPublicClient({
-        chain: botchainTestnet,
+        chain: defaultChain,
         transport: http(rpcUrl),
       });
 
@@ -217,7 +220,7 @@ export function FeeLookupSection({ contractAddress }: { contractAddress: `0x${st
               <div>
                 <span className="text-charcoal-500 block">Fee Amount:</span>
                 <span className="text-sm font-bold text-charcoal-100 font-mono">
-                  {formatBohrAmount(record.amount)} BOHR
+                  {formatBohrAmount(record.amount)} {symbol}
                 </span>
               </div>
             </div>
@@ -247,7 +250,7 @@ export function FeeLookupSection({ contractAddress }: { contractAddress: `0x${st
                     {copiedAdmin ? <Check className="w-3.5 h-3.5 text-emeraldAcc-400" /> : <Copy className="w-3.5 h-3.5" />}
                   </button>
                   <a
-                    href={`https://scan.bohr.life/address/${record.admin}`}
+                    href={`${explorerBase}/address/${record.admin}`}
                     target="_blank"
                     rel="noreferrer"
                     className="p-0.5 text-purpleAcc-400 hover:text-purpleAcc-300"

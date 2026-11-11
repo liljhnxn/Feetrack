@@ -27,15 +27,15 @@ export default function Home() {
           method: "wallet_addEthereumChain",
           params: [
             {
-              chainId: "0x3C8", // 968 in hex
-              chainName: "Botchain Testnet",
+              chainId: "0x2A5", // 677 in hex
+              chainName: "Botchain Mainnet",
               nativeCurrency: {
-                name: "Bohr",
-                symbol: "BOHR",
+                name: "Bot",
+                symbol: "BOT",
                 decimals: 18,
               },
-              rpcUrls: ["https://rpc.bohr.life"],
-              blockExplorerUrls: ["https://scan.bohr.life"],
+              rpcUrls: ["https://rpc.botchain.ai"],
+              blockExplorerUrls: ["https://scan.botchain.ai"],
             },
           ],
         });
@@ -43,7 +43,7 @@ export default function Home() {
         console.error("Failed to add Botchain to wallet:", err);
       }
     } else {
-      alert("Please install MetaMask to add the Botchain Testnet automatically.");
+      alert("Please install MetaMask to add the Botchain Mainnet automatically.");
     }
   };
 
@@ -70,7 +70,7 @@ export default function Home() {
             </h1>
 
             <p className="text-sm sm:text-base text-charcoal-400 leading-relaxed">
-              Transparent, tamper-proof school fee payment records on <strong>Botchain Testnet</strong>. Administrators register and maintain fee statuses with their wallet; parents, students, and sponsors can publicly verify payment statuses using only a Fee ID.
+              Transparent, tamper-proof school fee payment records on <strong>Botchain Mainnet</strong>. Administrators register and maintain fee statuses with their wallet; parents, students, and sponsors can publicly verify payment statuses using only a Fee ID.
             </p>
 
             {/* Quick Actions / Network Helper */}
@@ -84,17 +84,17 @@ export default function Home() {
               </button>
 
               <a
-                href="https://scan.bohr.life"
+                href="https://scan.botchain.ai"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-charcoal-800 hover:bg-charcoal-700 text-charcoal-300 border border-charcoal-700 transition-colors"
               >
-                <span>BohrScan Explorer</span>
+                <span>BotchainScan Explorer</span>
                 <ExternalLink className="w-3 h-3 text-charcoal-500" />
               </a>
 
               <span className="text-charcoal-500 font-mono hidden sm:inline">
-                Chain ID: 968
+                Chain ID: 677
               </span>
             </div>
           </div>
@@ -145,7 +145,7 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-4">
             <a
-              href="https://rpc.bohr.life"
+              href="https://rpc.botchain.ai"
               target="_blank"
               rel="noreferrer"
               className="hover:text-charcoal-300 transition-colors"
@@ -153,14 +153,14 @@ export default function Home() {
               RPC
             </a>
             <a
-              href="https://scan.bohr.life"
+              href="https://scan.botchain.ai"
               target="_blank"
               rel="noreferrer"
               className="hover:text-charcoal-300 transition-colors"
             >
               Explorer
             </a>
-            <span>Powered by Botchain Testnet (968)</span>
+            <span>Powered by Botchain Mainnet (677)</span>
           </div>
         </div>
       </footer>

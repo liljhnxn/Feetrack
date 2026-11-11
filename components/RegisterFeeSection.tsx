@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useAccount, useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import { parseEther, decodeEventLog } from "viem";
 import { FEE_TRACK_ABI } from "@/lib/contractABI";
+import { getCurrencySymbol } from "@/lib/utils";
 import { PlusCircle, Check, Copy, ExternalLink, Loader2, Info, AlertTriangle } from "lucide-react";
 
 export function RegisterFeeSection({
@@ -200,12 +201,12 @@ export function RegisterFeeSection({
             <div className="text-xs text-charcoal-400 flex items-center justify-between">
               <span>Tx: {txHash.slice(0, 14)}...{txHash.slice(-8)}</span>
               <a
-                href={`https://scan.bohr.life/tx/${txHash}`}
+                href={`${process.env.NEXT_PUBLIC_BOTCHAIN_EXPLORER_URL || "https://scan.botchain.ai"}/tx/${txHash}`}
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-1 text-emeraldAcc-400 hover:underline"
               >
-                <span>View on BohrScan</span>
+                <span>View on Explorer</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </div>
@@ -241,7 +242,7 @@ export function RegisterFeeSection({
           {/* Fee Amount */}
           <div>
             <label className="block text-xs font-medium text-charcoal-400 mb-1.5">
-              Fee Amount (BOHR) <span className="text-purpleAcc-400">*</span>
+              Fee Amount ({getCurrencySymbol()}) <span className="text-purpleAcc-400">*</span>
             </label>
             <input
               type="number"

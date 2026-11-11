@@ -1,9 +1,9 @@
 # FeeTrack: Decentralized Educational Fee Record Protocol
 
 **Whitepaper v1.0**  
-**Network**: Botchain Testnet (Chain ID: 968)  
-**Contract Address**: `0x0C5987fF8980f8B3e8230eB52C641DaA024c8E79`  
-**Explorer**: [BohrScan Verification](https://scan.bohr.life/address/0x0C5987fF8980f8B3e8230eB52C641DaA024c8E79#code)  
+**Network**: Botchain Mainnet (Chain ID: 677)  
+**Contract Address**: `0x734Ff1ff575f3229A896761694B235Ea53B780A3`  
+**Explorer**: [BotchainScan Verification](https://scan.botchain.ai/address/0x734Ff1ff575f3229A896761694B235Ea53B780A3#code)  
 **GitHub Repository**: [https://github.com/liljhnxn/Feetrack](https://github.com/liljhnxn/Feetrack)  
 
 ---
@@ -142,3 +142,4 @@ FeeTrack leverages **Botchain (BOHR)** for consensus and transaction ordering:
 ## 8. Conclusion
 
 FeeTrack delivers a simple, pragmatic, and high-impact blockchain utility: transparent, verifiable school fee recordkeeping without the steep onboarding hurdles of typical Web3 dApps. By protecting student privacy and eliminating wallet requirements for verifiers, FeeTrack is ready for real-world institutional adoption on Botchain.
+

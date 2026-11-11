@@ -14,6 +14,7 @@ import {
   formatDateOnly,
   formatTimestamp,
   isPastDeadline,
+  getCurrencySymbol,
 } from "@/lib/utils";
 import { EditFeeModal } from "./EditFeeModal";
 import {
@@ -242,7 +243,7 @@ export function MyFeesSection({ contractAddress }: { contractAddress: `0x${strin
                     <div>
                       <span>Amount: </span>
                       <span className="font-mono font-semibold text-charcoal-200">
-                        {formatBohrAmount(fee.amount)} BOHR
+                        {formatBohrAmount(fee.amount)} {getCurrencySymbol()}
                       </span>
                     </div>
 

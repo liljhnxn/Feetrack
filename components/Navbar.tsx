@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useAccount, useConnect, useDisconnect, useChainId, useSwitchChain } from "wagmi";
 import { formatAddress } from "@/lib/utils";
-import { botchainTestnet } from "@/lib/chains";
+import { botchainMainnet, botchainTestnet } from "@/lib/chains";
 import { ShieldCheck, Wallet, LogOut, Check, Copy, ExternalLink, AlertCircle } from "lucide-react";
 
 export function Navbar({ contractAddress }: { contractAddress: string }) {
@@ -16,7 +16,9 @@ export function Navbar({ contractAddress }: { contractAddress: string }) {
   const [copiedAddr, setCopiedAddr] = useState(false);
   const [copiedContract, setCopiedContract] = useState(false);
 
-  const isWrongNetwork = isConnected && chainId !== botchainTestnet.id && chainId !== 31337;
+  const targetChainId = Number(process.env.NEXT_PUBLIC_BOTCHAIN_CHAIN_ID) || 677;
+  const isWrongNetwork = isConnected && chainId !== targetChainId && chainId !== 31337;
+  const explorerBase = process.env.NEXT_PUBLIC_BOTCHAIN_EXPLORER_URL || "https://scan.botchain.ai";
 
   const handleCopy = (text: string, type: "user" | "contract") => {
     navigator.clipboard.writeText(text);
@@ -50,7 +52,7 @@ export function Navbar({ contractAddress }: { contractAddress: string }) {
                 Fee<span className="text-purpleAcc-400">Track</span>
               </span>
               <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-charcoal-850 text-purpleAcc-400 border border-charcoal-700">
-                Botchain 968
+                {targetChainId === 677 ? "Botchain Mainnet" : "Botchain 968"}
               </span>
             </div>
             <p className="text-xs text-charcoal-500 hidden sm:block">
@@ -74,7 +76,7 @@ export function Navbar({ contractAddress }: { contractAddress: string }) {
                 {copiedContract ? <Check className="w-3.5 h-3.5 text-emeraldAcc-400" /> : <Copy className="w-3.5 h-3.5" />}
               </button>
               <a
-                href={`https://scan.bohr.life/address/${contractAddress}`}
+                href={`${explorerBase}/address/${contractAddress}`}
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-purpleAcc-400 transition-colors p-0.5"
@@ -88,11 +90,11 @@ export function Navbar({ contractAddress }: { contractAddress: string }) {
           {/* Network Switcher Warning */}
           {isWrongNetwork && (
             <button
-              onClick={() => switchChain({ chainId: botchainTestnet.id })}
+              onClick={() => switchChain({ chainId: targetChainId })}
               className="flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg bg-amber-500/10 text-amber-300 border border-amber-500/30 hover:bg-amber-500/20 transition-all"
             >
               <AlertCircle className="w-3.5 h-3.5" />
-              <span>Switch to Botchain</span>
+              <span>Switch to {targetChainId === 677 ? "Botchain Mainnet" : "Botchain"}</span>
             </button>
           )}
 
