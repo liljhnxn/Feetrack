@@ -51,8 +51,10 @@ export function Navbar({ contractAddress }: { contractAddress: string }) {
               <span className="text-xl font-bold tracking-tight text-charcoal-200">
                 Fee<span className="text-purpleAcc-400">Track</span>
               </span>
-              <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-charcoal-850 text-purpleAcc-400 border border-charcoal-700">
-                Botchain Mainnet (677)
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-mono px-2 py-0.5 rounded-full bg-charcoal-850 text-purpleAcc-400 border border-charcoal-700">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/botchain-logo.png" alt="BOT Chain" className="w-3.5 h-3.5 rounded object-contain" />
+                <span>Botchain Mainnet (677)</span>
               </span>
             </div>
             <p className="text-xs text-charcoal-500 hidden sm:block">
@@ -66,6 +68,8 @@ export function Navbar({ contractAddress }: { contractAddress: string }) {
           {/* Contract Address Pill */}
           {contractAddress && contractAddress !== "0x0000000000000000000000000000000000000000" && (
             <div className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-charcoal-900 border border-charcoal-800 text-xs text-charcoal-400">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/botchain-logo.png" alt="BOT Chain" className="w-3.5 h-3.5 rounded object-contain" />
               <span className="text-charcoal-500">Contract:</span>
               <span className="font-mono">{formatAddress(contractAddress)}</span>
               <button

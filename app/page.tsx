@@ -77,9 +77,10 @@ export default function Home() {
             <div className="pt-2 flex flex-wrap items-center gap-3 text-xs">
               <button
                 onClick={handleAddBotchainToMetaMask}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-charcoal-800 hover:bg-charcoal-700 text-charcoal-300 border border-charcoal-700 transition-colors"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-charcoal-800 hover:bg-charcoal-700 text-charcoal-300 border border-charcoal-700 transition-colors"
               >
-                <Globe className="w-3.5 h-3.5 text-purpleAcc-400" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/botchain-logo.png" alt="BOT Chain" className="w-4 h-4 rounded object-contain" />
                 <span>Add Botchain to MetaMask</span>
               </button>
 
@@ -87,8 +88,10 @@ export default function Home() {
                 href="https://scan.botchain.ai"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-charcoal-800 hover:bg-charcoal-700 text-charcoal-300 border border-charcoal-700 transition-colors"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-charcoal-800 hover:bg-charcoal-700 text-charcoal-300 border border-charcoal-700 transition-colors"
               >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/botchain-logo.png" alt="BOT Chain" className="w-4 h-4 rounded object-contain" />
                 <span>BotchainScan Explorer</span>
                 <ExternalLink className="w-3 h-3 text-charcoal-500" />
               </a>
@@ -128,10 +131,13 @@ export default function Home() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-charcoal-850 border border-charcoal-700 text-xs font-medium text-emeraldAcc-400">
-                <span className="w-2 h-2 rounded-full bg-emeraldAcc-400 animate-pulse" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/botchain-logo.png" alt="BOT Chain" className="w-3.5 h-3.5 rounded object-contain" />
                 <span>BOT Chain Ecosystem</span>
               </div>
-              <h3 className="text-xl font-bold text-charcoal-100 flex items-center gap-2">
+              <h3 className="text-xl font-bold text-charcoal-100 flex items-center gap-2.5">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/botchain-logo.png" alt="BOT Chain" className="w-6 h-6 rounded-md object-contain shadow" />
                 <span>Powered by</span>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purpleAcc-400 via-purpleAcc-300 to-emeraldAcc-400">
                   BOT Chain
@@ -147,20 +153,22 @@ export default function Home() {
                 href="https://botchain.ai"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-charcoal-800 hover:bg-charcoal-750 border border-charcoal-700 text-xs font-semibold text-charcoal-200 hover:text-white transition-all shadow-md"
+                className="inline-flex items-center justify-center gap-2.5 px-4 py-2.5 rounded-xl bg-charcoal-800 hover:bg-charcoal-750 border border-charcoal-700 text-xs font-semibold text-charcoal-200 hover:text-white transition-all shadow-md group"
               >
-                <Globe className="w-4 h-4 text-purpleAcc-400" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/botchain-logo.png" alt="BOT Chain Logo" className="w-4 h-4 rounded object-contain shrink-0" />
                 <span>BOT Chain Website</span>
-                <ExternalLink className="w-3.5 h-3.5 text-charcoal-500" />
+                <ExternalLink className="w-3.5 h-3.5 text-charcoal-500 group-hover:text-charcoal-300" />
               </a>
 
               <a
                 href="https://scan.botchain.ai"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-purpleAcc-600 hover:bg-purpleAcc-700 text-xs font-semibold text-white transition-all shadow-md shadow-purpleAcc-900/30"
+                className="inline-flex items-center justify-center gap-2.5 px-4 py-2.5 rounded-xl bg-purpleAcc-600 hover:bg-purpleAcc-700 text-xs font-semibold text-white transition-all shadow-md shadow-purpleAcc-900/30 group"
               >
-                <ShieldCheck className="w-4 h-4 text-purpleAcc-200" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/botchain-logo.png" alt="BOT Chain Logo" className="w-4 h-4 rounded object-contain shrink-0" />
                 <span>BOT Chain Explorer</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
@@ -180,8 +188,10 @@ export default function Home() {
               href={`https://scan.botchain.ai/address/${contractAddress}`}
               target="_blank"
               rel="noreferrer"
-              className="text-purpleAcc-400 hover:underline flex items-center gap-1 font-mono"
+              className="text-purpleAcc-400 hover:underline flex items-center gap-1.5 font-mono"
             >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/botchain-logo.png" alt="BOT Chain" className="w-3.5 h-3.5 rounded object-contain shrink-0" />
               <span>Mainnet Contract: {contractAddress.slice(0, 10)}...{contractAddress.slice(-8)}</span>
               <ExternalLink className="w-3 h-3" />
             </a>
@@ -212,20 +222,23 @@ export default function Home() {
                 <span className="font-bold text-sm text-charcoal-200">FeeTrack</span>
                 <span className="text-charcoal-500">— School fee records made simple.</span>
               </div>
-              <p className="text-[11px] text-charcoal-500">
-                Built natively on <strong>BOT Chain</strong> Mainnet.
+              <p className="text-[11px] text-charcoal-500 flex items-center gap-1.5">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/botchain-logo.png" alt="BOT Chain" className="w-3.5 h-3.5 rounded object-contain shrink-0" />
+                <span>Built natively on <strong>BOT Chain</strong> Mainnet.</span>
               </p>
             </div>
 
             {/* Required BOT Chain Ecosystem Links */}
-            <div className="flex flex-wrap items-center gap-4 text-xs">
+            <div className="flex flex-wrap items-center gap-3 text-xs">
               <a
                 href="https://botchain.ai"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-1.5 text-charcoal-300 hover:text-white transition-colors py-1 px-2.5 rounded-lg bg-charcoal-900 border border-charcoal-800"
+                className="flex items-center gap-2 text-charcoal-300 hover:text-white transition-colors py-1.5 px-3 rounded-lg bg-charcoal-900 border border-charcoal-800 hover:border-charcoal-700 shadow-sm"
               >
-                <Globe className="w-3.5 h-3.5 text-emeraldAcc-400" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/botchain-logo.png" alt="BOT Chain Logo" className="w-4 h-4 rounded object-contain shrink-0" />
                 <span>BOT Chain website: <strong className="text-emeraldAcc-400 font-normal">https://botchain.ai</strong></span>
               </a>
 
@@ -233,9 +246,10 @@ export default function Home() {
                 href="https://scan.botchain.ai"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-1.5 text-charcoal-300 hover:text-white transition-colors py-1 px-2.5 rounded-lg bg-charcoal-900 border border-charcoal-800"
+                className="flex items-center gap-2 text-charcoal-300 hover:text-white transition-colors py-1.5 px-3 rounded-lg bg-charcoal-900 border border-charcoal-800 hover:border-charcoal-700 shadow-sm"
               >
-                <ExternalLink className="w-3.5 h-3.5 text-purpleAcc-400" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/botchain-logo.png" alt="BOT Chain Logo" className="w-4 h-4 rounded object-contain shrink-0" />
                 <span>BOT Chain explorer: <strong className="text-purpleAcc-400 font-normal">https://scan.botchain.ai</strong></span>
               </a>
             </div>
@@ -249,6 +263,8 @@ export default function Home() {
               <span>RPC: <code className="text-charcoal-400">https://rpc.botchain.ai</code></span>
               <span>•</span>
               <span>Chain ID: <code className="text-charcoal-400">677</code></span>
+              <span>•</span>
+              <span>Explorer: <code className="text-charcoal-400">https://scan.botchain.ai</code></span>
             </div>
           </div>
         </div>
